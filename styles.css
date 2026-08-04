@@ -1,0 +1,79 @@
+/* Two-step verification page */
+.verify-container {
+    max-width: 450px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.verify-box {
+    background: #1a1a1a;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(74, 144, 226, 0.25);
+}
+
+.verify-box h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.verify-box p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Code input boxes */
+.code-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.code-inputs input {
+    width: 45px;
+    height: 55px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+/* Verify button */
+.verify-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #4a90e2;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.verify-btn:hover {
+    background: #357abd;
+}
+
+/* Links */
+.verify-links a {
+    display: block;
+    margin-top: 8px;
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.verify-links a:hover {
+    color: #357abd;
+}
+
+/* Footer */
+.verify-footer {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #888;
+}
