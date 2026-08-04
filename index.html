@@ -40,6 +40,25 @@
 
     </div>
 </div>
+<script>
+    const inputs = document.querySelectorAll('.code-inputs input');
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            // Move to next box when a digit is typed
+            if (input.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+        });
+
+        input.addEventListener('keydown', (e) => {
+            // Allow backspace to move backwards
+            if (e.key === 'Backspace' && index > 0 && input.value === '') {
+                inputs[index - 1].focus();
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
