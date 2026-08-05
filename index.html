@@ -26,7 +26,7 @@
         </div>
 
         <!-- Verify button -->
-        <a class="verify-btn" href="https://pnutlicious.github.io/ITT-640-MFA-Dashboard/">Verify Identity →</a>
+        <a class="verify-btn" href="https://pnutlicious.github.io/ITT-640-MFA-Dashboard/" onclick="verifyCode()">Verify Identity →</a>
 
         <!-- Links -->
         <div class="verify-links">
@@ -41,6 +41,7 @@
     </div>
 </div>
 <script>
+    <!-- Advance and backspace each number entry -->
     const inputs = document.querySelectorAll('.code-inputs input');
 
     inputs.forEach((input, index) => {
@@ -58,6 +59,25 @@
             }
         });
     });
+    <!-- Advance and backspace each number entry end -->
+    <!-- Verify each six digits are entered  -->
+    function verifyCode() {
+    const digits = document.querySelectorAll('.digit');
+    let code = "";
+
+    digits.forEach(input => {
+        code += input.value;
+    });
+
+    // Check if all 6 boxes have a digit
+    if (code.length === 6 && /^\d{6}$/.test(code)) {
+        // Redirect to your URL
+        window.location.href = "https://pnutlicious.github.io/ITT-640-MFA-Dashboard/";
+    } else {
+        alert("Please enter all 6 digits.");
+    }
+    }
+    <!-- Verify each six digits are entered end -->
 </script>
 
 </body>
