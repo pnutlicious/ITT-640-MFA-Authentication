@@ -43,17 +43,37 @@
 <script>
 let attempts = 1;
 
+// AUTO‑ADVANCE + BACKSPACE
+const inputs = document.querySelectorAll('.digit');
+
+inputs.forEach((input, index) => {
+
+    // Move forward when typing
+    input.addEventListener('input', () => {
+        if (input.value.length === 1 && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+    });
+
+    // Move backward on backspace
+    input.addEventListener('keydown', (e) => {
+        if (e.key === "Backspace" && input.value === "" && index > 0) {
+            inputs[index - 1].focus();
+        }
+    });
+});
+
+
+// VERIFY CODE + ATTEMPT COUNTER
 function verifyCode() {
-    const digits = document.querySelectorAll('.digit');
     let code = "";
 
-    digits.forEach(input => {
+    inputs.forEach(input => {
         code += input.value;
     });
 
-    // Check if all 6 digits are entered and numeric
+    // SUCCESS → all 6 digits entered
     if (code.length === 6 && /^\d{6}$/.test(code)) {
-        // SUCCESS → redirect to dashboard
         window.location.href = "https://pnutlicious.github.io/ITT-640-MFA-Dashboard/";
         return;
     }
@@ -64,14 +84,13 @@ function verifyCode() {
     // Update attempt text
     document.getElementById("attemptText").innerText = `Attempt ${attempts} of 5`;
 
-    // If attempts exceed 5 → lock account
+    // LOCKOUT
     if (attempts > 5) {
         alert("Account Locked");
         window.location.href = "https://pnutlicious.github.io/ITT-640-MFA-Login/";
         return;
     }
 
-    // Normal failure message
     alert("Incorrect or incomplete code. Try again.");
 }
 </script>
