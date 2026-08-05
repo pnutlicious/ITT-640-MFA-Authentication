@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Verify Identity</title>
     <link rel="stylesheet" href="styles.css">
-
-    
 </head>
 <body>
 
@@ -26,7 +24,7 @@
         </div>
 
         <!-- Verify button -->
-       <a class="verify-btn" href="#" onclick="verifyCode()">Verify Identity →</a>
+        <a class="verify-btn" href="#" onclick="verifyCode()">Verify Identity →</a>
 
         <!-- Links -->
         <div class="verify-links">
@@ -36,13 +34,16 @@
         </div>
 
         <!-- Footer -->
-        <p class="verify-footer">256‑bit TLS</p>
+        <p class="verify-footer">256‑bit TLS •</p>
         <p id="attemptText" class="verify-footer">Attempt 1 of 5</p>
 
     </div>
 </div>
+
 <script>
-    let attempts = 1;
+let attempts = 1;
+
+function verifyCode() {
     const digits = document.querySelectorAll('.digit');
     let code = "";
 
@@ -50,7 +51,7 @@
         code += input.value;
     });
 
-    // Check if all 6 digits are entered
+    // Check if all 6 digits are entered and numeric
     if (code.length === 6 && /^\d{6}$/.test(code)) {
         // SUCCESS → redirect to dashboard
         window.location.href = "https://pnutlicious.github.io/ITT-640-MFA-Dashboard/";
@@ -63,7 +64,7 @@
     // Update attempt text
     document.getElementById("attemptText").innerText = `Attempt ${attempts} of 5`;
 
-    // If attempts reach 5 → lock account
+    // If attempts exceed 5 → lock account
     if (attempts > 5) {
         alert("Account Locked");
         window.location.href = "https://pnutlicious.github.io/ITT-640-MFA-Login/";
@@ -72,6 +73,7 @@
 
     // Normal failure message
     alert("Incorrect or incomplete code. Try again.");
+}
 </script>
 
 </body>
