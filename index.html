@@ -36,13 +36,14 @@
         </div>
 
         <!-- Footer -->
-        <p class="verify-footer">256‑bit TLS •</p><p id="attempText" class="verify-footer">Attempt 1 of 5</p>
+        <p class="verify-footer">256‑bit TLS</p><p id="attempText" class="verify-footer">Attempt 1 of 5</p>
 
     </div>
 </div>
 <script>
+    let attempts = 1;
     <!-- Advance and backspace each number entry -->
-        const digits = document.querySelectorAll('.digit');
+    const digits = document.querySelectorAll('.digit');
     let code = "";
 
     digits.forEach(input => {
