@@ -26,7 +26,7 @@
         </div>
 
         <!-- Verify button -->
-       <a class="verify-btn" onclick="verifyCode()">Verify Identity →</a>
+       <a class="verify-btn" href="#" onclick="verifyCode()">Verify Identity →</a>
 
         <!-- Links -->
         <div class="verify-links">
@@ -42,7 +42,6 @@
 </div>
 <script>
     let attempts = 1;
-    <!-- Advance and backspace each number entry -->
     const digits = document.querySelectorAll('.digit');
     let code = "";
 
@@ -72,7 +71,6 @@
 
     // Normal failure message
     alert("Incorrect or incomplete code. Try again.");
-    <!-- Verify each six digits are entered end -->
 </script>
 
 </body>
