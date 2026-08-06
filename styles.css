@@ -3,6 +3,14 @@ body {
     background: #0f0f0f;
     color: #fff;
 }
+
+.site-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
 /* Two-step verification page */
 .verify-container {
     max-width: 450px;
